@@ -263,7 +263,7 @@ class NavDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           new SizedBox(
-            height: 10.0,
+            height: 60.0,
             child: new DrawerHeader(
               child: Text(
                 'Најди Стан',
