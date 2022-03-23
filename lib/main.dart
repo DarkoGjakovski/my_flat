@@ -271,33 +271,33 @@ class NavDrawer extends StatelessWidget {
                 /*image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cover.jpg'))*/),
           ),
           ListTile(
-            leading: Icon(Icons.pin_drop),
+            // leading: Icon(Icons.pin_drop),
             title: Text('Skopje'),
             onTap: () => {},
           ),
           ListTile(
-            leading: Icon(Icons.pin_drop),
+            // leading: Icon(Icons.pin_drop),
             title: Text('Bitola'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
-            leading: Icon(Icons.pin_drop),
+            // leading: Icon(Icons.pin_drop),
             title: Text('Kumanovo'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
-            leading: Icon(Icons.pin_drop),
+            // leading: Icon(Icons.pin_drop),
             title: Text('Prilep'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
-            leading: Icon(Icons.pin_drop),
+            // leading: Icon(Icons.pin_drop),
             title: Text('Ohrid'),
             onTap: () => {
               Navigator.of(context).pop()
