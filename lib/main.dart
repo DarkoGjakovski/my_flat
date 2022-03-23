@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
-late List<City> futureCities;
+late List<City> futureCities = [];
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
