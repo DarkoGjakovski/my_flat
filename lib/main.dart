@@ -89,7 +89,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.red,
         onTap: _onItemTapped,
       ),
     );
