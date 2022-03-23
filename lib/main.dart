@@ -273,8 +273,8 @@ Future<City> fetchCity() async {
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    print("sta je ovo bre");
-    return City.fromJson(jsonDecode(response.body)[0]);
+    print(jsonDecode(response.body));
+    return City.fromJson(jsonDecode(response.body));
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
@@ -283,7 +283,7 @@ Future<City> fetchCity() async {
 }
 
 class NavDrawer extends StatelessWidget {
-  late City futureCities;
+  late List<City> futureCities;
   @override
   Widget build(BuildContext context) {
     fetchCity().then((value) => {
