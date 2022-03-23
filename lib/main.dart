@@ -35,9 +35,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    MyHomePage(title: "Најди Стан"),
     Text(
       'COURSE PAGE',
+      style: optionStyle,
+    ),
+    MyHomePage(title: "Најди Стан"),
+    Text(
+      'CONTACT GFG',
+      style: optionStyle,
+    ),
+    Text(
+      'CONTACT GFG',
       style: optionStyle,
     ),
     Text(
@@ -62,8 +70,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // Fixed
-        backgroundColor: Colors.white54, // <-- This works for fixed
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white54,
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
@@ -73,24 +81,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label: 'Business',
+            label: 'Search',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
-            label: 'School',
+            label: 'post',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'Favorites',
+            label: 'favorites',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            label: 'profile',
           ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
+      drawer: NavDrawer(),
     );
   }
 }
@@ -244,4 +253,58 @@ class FlatEntity {
   FlatEntity({required this.city, required this.municipality, required this.price, required this.title});
 
   factory FlatEntity.fromJson(Map<String, dynamic> json) => FlatEntity(city: json["City"], municipality: json["Municipality"], price: json["Price"], title: json["Title"]);
+}
+
+class NavDrawer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+            child: Text(
+              'Најди Стан',
+              style: TextStyle(color: Colors.white, fontSize: 25),
+            ),
+            decoration: BoxDecoration(color: Colors.red
+                /*image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cover.jpg'))*/),
+          ),
+          ListTile(
+            leading: Icon(Icons.input),
+            title: Text('Welcome'),
+            onTap: () => {},
+          ),
+          ListTile(
+            leading: Icon(Icons.verified_user),
+            title: Text('Profile'),
+            onTap: () => {
+              Navigator.of(context).pop()
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Settings'),
+            onTap: () => {
+              Navigator.of(context).pop()
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.border_color),
+            title: Text('Feedback'),
+            onTap: () => {
+              Navigator.of(context).pop()
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.exit_to_app),
+            title: Text('Logout'),
+            onTap: () => {
+              Navigator.of(context).pop()
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }
