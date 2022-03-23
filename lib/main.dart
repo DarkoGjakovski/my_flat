@@ -273,8 +273,9 @@ Future<City> fetchCity() async {
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    var temp = City.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
     print("sta je ovo bre");
+    var temp = City.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+
     return temp;
   } else {
     // If the server did not return a 200 OK response,
