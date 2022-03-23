@@ -273,8 +273,9 @@ Future<List<City>> fetchCity() async {
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    print("sta je ovo bre");
-    return jsonDecode(response.body);
+    Iterable l = json.decode(response.body);
+    List<City> cities = List<City>.from(l.map((model) => City().fromJson(model)));
+    return cities;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
