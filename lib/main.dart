@@ -256,18 +256,37 @@ class FlatEntity {
 }
 
 class City {
-  String name;
-  City({required this.name});
+  final String name;
+  const City({required this.name});
+  factory City.fromJson(Map<String, dynamic> json) {
+    return City(name: json['name']);
+  }
+}
+
+Future<http.Response> fetchCities() {
+  return http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json"));
+}
+
+Future<City> fetchCity() async {
+  final response = await http.get(Uri.parse('https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json'));
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    return City.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load city');
+  }
 }
 
 class NavDrawer extends StatelessWidget {
-  static Future<City?> query(String search) async {
-    var cities = await http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json"));
-    print(cities);
-  }
-
+  late Future<City> futureCities;
   @override
   Widget build(BuildContext context) {
+    futureCities = fetchCity();
+    print(futureCities);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
