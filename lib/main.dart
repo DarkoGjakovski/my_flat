@@ -8,10 +8,16 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   static const String _title = 'Flutter Code Sample';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Најди Стан',
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
       // home: MyHomePage(title: 'Најди стан'),
       home: MyStatefulWidget(),
     );
@@ -50,7 +56,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Најди Стан'),
+        title: const Text('BottomNavigationBar Sample'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -109,6 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
       body: Container(
         child: Padding(
           padding: EdgeInsets.all(10),
