@@ -274,9 +274,7 @@ Future<City> fetchCity() async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     print("sta je ovo bre");
-    var temp = City.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
-
-    return temp;
+    return City.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
