@@ -12,10 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Најди Стан',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
       // home: MyHomePage(title: 'Најди стан'),
       home: MyStatefulWidget(),
     );
@@ -54,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('Најди Стан'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
