@@ -283,11 +283,13 @@ Future<City> fetchCity() async {
 }
 
 class NavDrawer extends StatelessWidget {
-  late Future<City> futureCities;
+  late City futureCities;
   @override
   Widget build(BuildContext context) {
-    futureCities = fetchCity();
-    print("sta je ovo bre $futureCities");
+    fetchCity().then((value) => {
+      futureCities = value;
+      print("sta je ovo bre $futureCities");
+    });
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
