@@ -289,7 +289,9 @@ class NavDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     fetchCity().then((value) => {
           futureCities = value,
-          print(futureCities[1].name)
+          futureCities.forEach((element) {
+            print(element.name);
+          })
         });
     return Drawer(
       child: ListView(
