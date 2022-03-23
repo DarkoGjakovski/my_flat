@@ -255,7 +255,17 @@ class FlatEntity {
   factory FlatEntity.fromJson(Map<String, dynamic> json) => FlatEntity(city: json["City"], municipality: json["Municipality"], price: json["Price"], title: json["Title"]);
 }
 
+class City {
+  String name;
+  City({required this.name});
+}
+
 class NavDrawer extends StatelessWidget {
+  static Future<City?> query(String search) async {
+    var cities = await http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json"));
+    print(cities);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
