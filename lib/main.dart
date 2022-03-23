@@ -85,15 +85,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
-            label: 'post',
+            label: 'Post',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
-            label: 'favorites',
+            label: 'Favorites',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'profile',
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
