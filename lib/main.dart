@@ -288,7 +288,7 @@ class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     futureCities = fetchCity();
-    print("sta je ovo bre $futureCities");
+    // print("sta je ovo bre $futureCities");
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
