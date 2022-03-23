@@ -262,13 +262,16 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          DrawerHeader(
-            child: Text(
-              'Најди Стан',
-              style: TextStyle(color: Colors.white, fontSize: 25),
+          new SizedBox(
+            height: 10.0,
+            child: new DrawerHeader(
+              child: Text(
+                'Најди Стан',
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+              decoration: BoxDecoration(color: Colors.red
+                  /*image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cover.jpg'))*/),
             ),
-            decoration: BoxDecoration(color: Colors.red
-                /*image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cover.jpg'))*/),
           ),
           ListTile(
             // leading: Icon(Icons.pin_drop),
