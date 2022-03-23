@@ -6,13 +6,19 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
+late List<City> futureCities;
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   static const String _title = 'Flutter Code Sample';
   @override
   Widget build(BuildContext context) {
+    fetchCity().then((value) => {
+          futureCities = value,
+          // futureCities.forEach((element) {
+          //   print(element.name);
+          // })
+        });
     return MaterialApp(
       title: 'Најди Стан',
       theme: ThemeData(
@@ -284,14 +290,9 @@ Future<List<City>> fetchCity() async {
 }
 
 class NavDrawer extends StatelessWidget {
-  late List<City> futureCities;
   @override
   Widget build(BuildContext context) {
-    fetchCity().then((value) => {
-          futureCities = value,
-          // futureCities.forEach((element) {
-          //   print(element.name);
-      return Drawer(
+    return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -314,7 +315,6 @@ class NavDrawer extends StatelessWidget {
             )
         ],
       ),
-    )     // })
-    });
+    );
   }
 }
