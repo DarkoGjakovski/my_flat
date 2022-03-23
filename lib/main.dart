@@ -272,33 +272,33 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.pin_drop),
-            title: Text('Welcome'),
+            title: Text('Skopje'),
             onTap: () => {},
           ),
           ListTile(
             leading: Icon(Icons.pin_drop),
-            title: Text('Profile'),
+            title: Text('Bitola'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
             leading: Icon(Icons.pin_drop),
-            title: Text('Settings'),
+            title: Text('Kumanovo'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
             leading: Icon(Icons.pin_drop),
-            title: Text('Feedback'),
+            title: Text('Prilep'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
             leading: Icon(Icons.pin_drop),
-            title: Text('Logout'),
+            title: Text('Ohrid'),
             onTap: () => {
               Navigator.of(context).pop()
             },
