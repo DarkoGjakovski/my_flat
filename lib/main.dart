@@ -291,9 +291,7 @@ class NavDrawer extends StatelessWidget {
           futureCities = value,
           // futureCities.forEach((element) {
           //   print(element.name);
-          // })
-        });
-    return Drawer(
+      return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -316,6 +314,7 @@ class NavDrawer extends StatelessWidget {
             )
         ],
       ),
-    );
+    )     // })
+    });
   }
 }
