@@ -289,9 +289,9 @@ class NavDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     fetchCity().then((value) => {
           futureCities = value,
-          futureCities.forEach((element) {
-            print(element.name);
-          })
+          // futureCities.forEach((element) {
+          //   print(element.name);
+          // })
         });
     return Drawer(
       child: ListView(
@@ -308,39 +308,12 @@ class NavDrawer extends StatelessWidget {
                   /*image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cover.jpg'))*/),
             ),
           ),
-          ListTile(
-            // leading: Icon(Icons.pin_drop),
-            title: Text('Skopje'),
-            onTap: () => {},
-          ),
-          ListTile(
-            // leading: Icon(Icons.pin_drop),
-            title: Text('Bitola'),
-            onTap: () => {
-              Navigator.of(context).pop()
-            },
-          ),
-          ListTile(
-            // leading: Icon(Icons.pin_drop),
-            title: Text('Kumanovo'),
-            onTap: () => {
-              Navigator.of(context).pop()
-            },
-          ),
-          ListTile(
-            // leading: Icon(Icons.pin_drop),
-            title: Text('Prilep'),
-            onTap: () => {
-              Navigator.of(context).pop()
-            },
-          ),
-          ListTile(
-            // leading: Icon(Icons.pin_drop),
-            title: Text('Ohrid'),
-            onTap: () => {
-              Navigator.of(context).pop()
-            },
-          ),
+          for (var city in futureCities)
+            ListTile(
+              // leading: Icon(Icons.pin_drop),
+              title: Text(city.name),
+              onTap: () => {},
+            )
         ],
       ),
     );
