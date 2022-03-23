@@ -271,33 +271,33 @@ class NavDrawer extends StatelessWidget {
                 /*image: DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cover.jpg'))*/),
           ),
           ListTile(
-            leading: Icon(Icons.input),
+            leading: Icon(Icons.pin_drop),
             title: Text('Welcome'),
             onTap: () => {},
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
+            leading: Icon(Icons.pin_drop),
             title: Text('Profile'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
+            leading: Icon(Icons.pin_drop),
             title: Text('Settings'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
-            leading: Icon(Icons.border_color),
+            leading: Icon(Icons.pin_drop),
             title: Text('Feedback'),
             onTap: () => {
               Navigator.of(context).pop()
             },
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
+            leading: Icon(Icons.pin_drop),
             title: Text('Logout'),
             onTap: () => {
               Navigator.of(context).pop()
