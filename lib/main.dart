@@ -274,7 +274,7 @@ Future<List<City>> fetchCity() async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     Iterable l = json.decode(response.body);
-    List<City> cities = List<City>.from(l.map((model) => City().fromJson(model)));
+    List<City> cities = List<City>.from(l.map((model) => City.fromJson(model)));
     return cities;
   } else {
     // If the server did not return a 200 OK response,
