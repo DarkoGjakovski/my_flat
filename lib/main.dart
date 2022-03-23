@@ -63,8 +63,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed, // Fixed
-        backgroundColor: Colors.black, // <-- This works for fixed
-        selectedItemColor: Colors.greenAccent,
+        backgroundColor: Colors.white54, // <-- This works for fixed
+        selectedItemColor: Colors.red,
         unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
