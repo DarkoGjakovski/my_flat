@@ -267,14 +267,14 @@ Future<http.Response> fetchCities() {
   return http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json"));
 }
 
-Future<City> fetchCity() async {
+Future<List<City>> fetchCity() async {
   final response = await http.get(Uri.parse('https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     print("sta je ovo bre");
-    return City.fromJson(jsonDecode(response.body));
+    return jsonDecode(response.body);
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
@@ -283,12 +283,12 @@ Future<City> fetchCity() async {
 }
 
 class NavDrawer extends StatelessWidget {
-  late City futureCities;
+  late List<City> futureCities;
   @override
   Widget build(BuildContext context) {
     fetchCity().then((value) => {
           futureCities = value,
-          print(futureCities.name)
+          print(futureCities[0].name)
         });
     return Drawer(
       child: ListView(
