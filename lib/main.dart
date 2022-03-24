@@ -125,13 +125,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _search() async {
     String str = searchTextController.text;
-    fetchFlat().then((value) => {
-          futureFlatEntities = value,
-          searchList = value,
-          searchList.forEach((element) {
-            print(element.price);
-          })
-        });
+    // fetchFlat().then((value) => {
+    //       futureFlatEntities = value,
+    //       searchList = value,
+    //       searchList.forEach((element) {
+    //         print(element.price);
+    //       })
+    //     });
+    searchList = await fetchFlat();
   }
 
   @override
