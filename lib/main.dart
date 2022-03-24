@@ -131,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     searchList = await fetchFlat();
     searchList.forEach((element) {
-      print(element.munipacity);
+      print(element.municipality);
     });
   }
 
