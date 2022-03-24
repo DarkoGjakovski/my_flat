@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 late List<City> futureCities = [];
+late List<FlatEntity> futureFlatEntities = [];
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -124,12 +125,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _search() {
     String str = searchTextController.text;
-    RequestService.query(str).then((FlatSearchResponse? response) {
-      setState(() {
-        print(response);
-        searchList = response!.query.search;
-      });
-    });
+    fetchFlat().then((value) => {
+          futureFlatEntities = value,
+          // futureCities.forEach((element) {
+          //   print(element.name);
+          // })
+        });
   }
 
   @override
@@ -214,42 +215,6 @@ class FlatItemWidget extends StatelessWidget {
   }
 }
 
-class RequestService {
-  static Future<FlatSearchResponse?> query(String search) async {
-    var response = await http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/flats/-MxkPhgLrWLRH3bf7ocd.json"));
-
-    if (response.statusCode >= 200 && response.statusCode < 300) {
-      // var map = json.decode(response.body);
-      // var listCity = map['query'];
-      // var searchList = listCity['search'] as List;
-      var map = json.decode(response.body);
-      return FlatSearchResponse.fromJson(map);
-    } else {
-      print("Query failed: ${response.body} (${response.statusCode})");
-      return null;
-    }
-  }
-}
-
-class FlatSearchResponse {
-  FlatQueryResponse query;
-  FlatSearchResponse({required this.query});
-
-  factory FlatSearchResponse.fromJson(Map<String, dynamic> json) => FlatSearchResponse(query: FlatQueryResponse.fromJson(json['query']));
-}
-
-class FlatQueryResponse {
-  List<FlatEntity> search;
-
-  FlatQueryResponse({required this.search});
-
-  factory FlatQueryResponse.fromJson(Map<String, dynamic> json) {
-    List<dynamic> resultList = json['search'];
-    List<FlatEntity> search = resultList.map((dynamic value) => FlatEntity.fromJson(value)).toList(growable: false);
-    return FlatQueryResponse(search: search);
-  }
-}
-
 class FlatEntity {
   String city;
   String municipality;
@@ -273,6 +238,10 @@ Future<http.Response> fetchCities() {
   return http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json"));
 }
 
+Future<http.Response> fetchFlats() {
+  return http.get(Uri.parse("https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/flats.json"));
+}
+
 Future<List<City>> fetchCity() async {
   final response = await http.get(Uri.parse('https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/cities.json'));
 
@@ -286,6 +255,22 @@ Future<List<City>> fetchCity() async {
     // If the server did not return a 200 OK response,
     // then throw an exception.
     throw Exception('Failed to load city');
+  }
+}
+
+Future<List<FlatEntity>> fetchFlat() async {
+  final response = await http.get(Uri.parse('https://myflat-d6495-default-rtdb.europe-west1.firebasedatabase.app/flats.json'));
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    Iterable l = json.decode(response.body);
+    List<FlatEntity> flats = List<FlatEntity>.from(l.map((model) => FlatEntity.fromJson(model)));
+    return flats;
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load flats');
   }
 }
 
