@@ -128,11 +128,11 @@ class _MyHomePageState extends State<MyHomePage> {
     // fetchFlat().then((value) => {
     //       futureFlatEntities = value,
     //       searchList = value,
-    //       searchList.forEach((element) {
-    //         print(element.price);
-    //       })
-    //     });
+
     searchList = await fetchFlat();
+    searchList.forEach((element) {
+      print(element.price);
+    });
   }
 
   @override
