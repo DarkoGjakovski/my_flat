@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var searchTextController = TextEditingController();
   List<FlatEntity> searchList = [];
 
-  void _search() {
+  void _search() async {
     String str = searchTextController.text;
     fetchFlat().then((value) => {
           futureFlatEntities = value,
