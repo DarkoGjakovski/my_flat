@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
           futureFlatEntities = value,
           searchList = value,
           searchList.forEach((element) {
-            print(element.Price);
+            print(element.price);
           })
         });
   }
