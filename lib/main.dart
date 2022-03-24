@@ -127,6 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String str = searchTextController.text;
     fetchFlat().then((value) => {
           futureFlatEntities = value,
+          searchList = value
           // futureCities.forEach((element) {
           //   print(element.name);
           // })
